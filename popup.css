@@ -1,0 +1,40 @@
+h1 {
+  color: rgb(148, 187, 223);
+  margin: 0;
+  min-height: 180px;
+  padding: 0;
+  width: 384px;
+}
+h3 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.version {
+  color: rgb(212, 212, 212);
+  font-size: 24px;
+}
+
+.modal-header {
+  text-align: center;
+  background-color: rgb(45, 93, 121);
+}
+
+.modal-content {
+  text-align: center;
+  background-image: url("./images/keysBackground.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#editPassForm {
+  background-color: white;
+  margin-top: 20px;
+  padding: 7px;
+}

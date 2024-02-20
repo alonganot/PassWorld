@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PassWorld</title>
+    <script src="https://use.fontawesome.com/ed71135228.js"></script>
+    <link rel="stylesheet" href="popup.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="modal-header">
+      <h1 class="logo">
+        <img
+          src="images/logo_256.png"
+          class="logo-icon"
+          style="height: 170px"
+        />
+        PassWorld
+        <span class="version">(1.1.0)</span>
+      </h1>
+    </div>
+    <div class="modal-content">
+      <h3>Access your passwords anytime!</h3>
+      <div class="input-group mb-3">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search"
+          aria-label="Search"
+          id="searchBar"
+          aria-describedby="basic-addon1"
+        />
+      </div>
+      <table class="table table-dark table-striped" id="mainTable">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Site</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="mainTableBody"></tbody>
+      </table>
+      <div id="addPassMenu" style="margin-top: 20px">
+        <div class="input-group mb-3">
+          <input
+            style="font-size: 14px"
+            type="text"
+            class="form-control"
+            id="newPassSite"
+            placeholder="Site"
+            aria-label="Site"
+          />
+          <input
+            style="font-size: 14px"
+            type="text"
+            class="form-control"
+            id="newPassUser"
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="button-addon2"
+          />
+          <input
+            style="font-size: 14px"
+            type="text"
+            class="form-control"
+            id="newPassPass"
+            placeholder="Password"
+            aria-label="Password"
+            aria-describedby="button-addon2"
+          />
+          <input
+            style="font-size: 14px"
+            type="text"
+            class="form-control"
+            id="newPassLink"
+            placeholder="Link"
+            aria-label="Link"
+          />
+          <button
+            class="btn btn-primary"
+            type="button"
+            id="button-addon2"
+            data-bs-toggle="tooltip"
+            title="Add a new password!"
+          >
+            <i class="fa fa-user-plus fa-2x"></i>
+          </button>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Edit your passwords
+      </button>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5
+                class="modal-title"
+                id="exampleModalLabel"
+                style="color: white"
+              >
+                Edit your passwords information:
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <h2 style="color: white">What do you want to edit?</h2>
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                id="passSelect"
+              ></select>
+              <div id="editPassForm">
+                <form style="text-align: left">
+                  <div class="mb-3">
+                    <label
+                      for="siteName1"
+                      class="form-label"
+                      style="margin-left: 5px"
+                      >Site name:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="siteName1"
+                      aria-describedby="siteNameHelp"
+                    />
+                    <div id="siteNameHelp" class="form-text">
+                      This name is only for you to recognize what is the
+                      password for.
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="userName1" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="userName1" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="password1" class="form-label">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password1"
+                    />
+                    <input type="checkbox" id="togglePassVis" />
+                    <i class="fa fa-eye fa-2x"></i>
+                  </div>
+                  <div class="mb-3">
+                    <label for="myLink1" class="form-label">Link</label>
+                    <input type="text" class="form-control" id="myLink1" />
+                  </div>
+                  <button
+                    id="changePassInfoButton"
+                    type="submit"
+                    class="btn btn-primary"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+      integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
