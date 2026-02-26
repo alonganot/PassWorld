@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PassWorld Checkout</title>
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=ARpSmZ1aePLxnJSw-Awa8K2XhHOeTRV0EOAOXJBCz7ZDDNZ8EKYMqPRy8uxRzLyHNtzB_SPdGL759ztj&currency=USD&disable-funding=credit,card"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: sans-serif;
+            background-color: rgb(45, 93, 121);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            color: black;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            margin-top: 50px;
+        }
+
+        #paypal-button-container {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        #success-message {
+            display: none;
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2 id="checkout-title">Complete your purchase</h2>
+        <p id="checkout-desc">Checking out...</p>
+        <div id="paypal-button-container"></div>
+        <div id="success-message">
+            <h3>Payment Successful!</h3>
+            <p>You can safely close this page and simply reopen the PassWorld extension. Your passcode will now grant
+                you your new privileges.</p>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const amount = urlParams.get('amount');
+        const level = urlParams.get('level');
+        const key = urlParams.get('key'); // Optional: pass back if you really needed to, but AppContext has it.
+
+        document.getElementById('checkout-title').innerText = `Buy PassWorld ${level.toUpperCase()}`;
+        document.getElementById('checkout-desc').innerText = `Total: $${amount}`;
+
+        paypal.Buttons({
+            style: { layout: "vertical", shape: "pill", color: level === 'gold' ? 'gold' : 'blue' },
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        description: `PassWorld ${level.toUpperCase()} membership`,
+                        amount: { value: amount }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+
+                    // On success, we need to upgrade the user's level.
+                    // However, we don't have the explicit 'key' in this sandbox easily unless we pass it, 
+                    // which is insecure via URL. 
+                    // Therefore, we tell the system to notify the extension to upgrade when next opened.
+
+                    // Send a broadcast message to the extension 
+                    chrome.runtime.sendMessage({
+                        action: "UPGRADE_SUCCESS",
+                        level: level
+                    }, function (response) {
+                        document.getElementById('paypal-button-container').style.display = 'none';
+                        document.getElementById('success-message').style.display = 'block';
+                    });
+                });
+            }
+        }).render("#paypal-button-container");
+    </script>
+</body>
+
+</html>
