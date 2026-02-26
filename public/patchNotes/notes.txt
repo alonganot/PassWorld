@@ -1,0 +1,60 @@
+version: 1.1.0
+Patch notes:
+- Added tooltips describing all buttons.
+- Added "Edit passwords" tab.
+- Made the id of each password unique.
+- Changed background image and logo.
+
+version: 1.1.1
+Patch notes:
+- You can now add a password with missing information.
+
+version 1.1.2
+Patch notes:
+- Delete button no longer shows when list is empty.
+- You now only see the buttons for actions that gives real values.
+- Removed the generic "edit" button at the bottom the extension.
+- Each password now has an independent "edit" button (You can still change which password to edit via
+  the window)
+- Added patch notes icon to check out the recent updates.
+
+version 1.2.0
+Patch notes:
+- Fixed bug of long site name messing the table.
+- There are now 3 levels of membership - Free, Gold and Platinum.
+  (Read more about what you get on each level at the upgrade button!)
+
+version 1.2.1
+Patch notes:
+- Added tooltips to the top buttons.
+- You now need to enter a passcode at each login, this passcode secures your passwords and your
+  membership status.
+
+version 1.2.2
+Patch notes:
+- Fixed delete button not showing in some cases.
+- Fixed first time login not working.
+- Added a first time login popup.
+
+version 1.2.3
+Patch notes:
+- Made the popup last shorter.
+- Login listens to enter click as well.
+- Added ensuring before deleting passwords.
+- Once you purchased a premium membership, you can no longer purchase it again.
+- Fixed bug where editing password would log out.
+
+version 1.2.4
+Patch notes:
+- Fixed a bug where username was set as site name.
+
+version 1.2.5
+Patch notes:
+- Fixed a bug where version would go down a line when extension becomes scrollable.
+
+version 1.2.6
+Patch notes:
+- Complete refactor of the extension into the React framework.
+- Upgraded the extension to meet Chrome's Manifest V3 requirements for better security and performance.
+- Replaced the old PayPal buttons with secure checkout links to comply with the new extension constraints.
+- UI elements now use styled-components for consistent rendering.

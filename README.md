@@ -1,57 +1,16 @@
-# PassWorld
+# React + Vite
 
-Access your passwords anytime!
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-version: 1.1.0
-Patch notes:
-- Added tooltips describing all buttons.
-- Added "Edit passwords" tab.
-- Made the id of each password unique.
-- Changed background image and logo.
+Currently, two official plugins are available:
 
-version: 1.1.1
-Patch notes:
-- You can now add a password with missing information.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-version 1.1.2
-Patch notes:
-- Delete button no longer shows when list is empty.
-- You now only see the buttons for actions that gives real values.
-- Removed the generic "edit" button at the bottom the extension.
-- Each password now has an independent "edit" button (You can still change which password to edit via
-  the window).
-- Added patch notes icon to check out the recent updates.
- 
-version 1.2.0
-Patch notes:
-- Fixed bug of long site name messing the table.
-- There are now 3 levels of membership - Free, Gold and Platinum.
-  (Read more about what you get on each level at the upgrade button!)
+## React Compiler
 
-version 1.2.1
-Patch notes:
-- Added tooltips to the top buttons.
-- You now need to enter a passcode at each login, this passcode secures your passwords and your
-  membership status.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-version 1.2.2
-Patch notes:
-- Fixed delete button not showing in some cases.
-- Fixed first time login not working.
-- Added a first time login popup.
+## Expanding the ESLint configuration
 
-version 1.2.3
-Patch notes:
-- Made the popup last shorter.
-- Login listens to enter click as well.
-- Added ensuring before deleting passwords.
-- Once you purchased a premium membership, you can no longer purchase it again.
-- Fixed bug where editing password would log out.
-
-version 1.2.4
-Patch notes:
-- Fixed a bug where username was set as site name.
-
-version 1.2.5
-Patch notes:
-- Fixed a bug where version would go down a line when extension becomes scrollable.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
