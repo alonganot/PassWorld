@@ -29,21 +29,41 @@
         <img
           src="images/logo_256.png"
           class="logo-icon"
-          style="height: 170px"
+          style="height: 160px"
         />
         PassWorld
-        <span class="version">(1.1.0)</span>
+        <span class="version">(1.2.5)</span>
+          <button
+            class="btn"
+            id="patchNotesButton"
+            data-bs-toggle="modal"
+            data-bs-target="#patchNotesModal"
+            title="Patch notes"
+          >
+            <i class="fa fa-book"></i>
+          </button>
+        </a>
+
+        <button
+          class="btn"
+          id="upgradeButton"
+          data-bs-toggle="modal"
+          data-bs-target="#upgradeModal"
+          title="Upgrade now!"
+        >
+          <i class="fa fa-money"></i>
+          <i class="fa fa-level-up"></i>
+        </button>
       </h1>
     </div>
     <div class="modal-content">
+      <h5 id="userLevel"></h5>
       <h3>Access your passwords anytime!</h3>
       <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa fa-search"></i></span>
         <input
           type="text"
           class="form-control"
-          placeholder="Search"
-          aria-label="Search"
           id="searchBar"
           aria-describedby="basic-addon1"
         />
@@ -105,14 +125,6 @@
           </button>
         </div>
       </div>
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Edit your passwords
-      </button>
       <div
         class="modal fade"
         id="exampleModal"
@@ -184,12 +196,176 @@
                   </div>
                   <button
                     id="changePassInfoButton"
-                    type="submit"
+                    type="button"
                     class="btn btn-primary"
                   >
                     Submit
                   </button>
                 </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="patchNotesModal"
+        tabindex="-1"
+        aria-labelledby="patchNotesLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="patchNotesLabel" style="color: white">
+                Patch notes:
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div id="patchNotesBody">
+                <embed src="./patchNotes/notes.txt" id="patchNotes" />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="upgradeModal"
+        tabindex="-1"
+        aria-labelledby="upgradeLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="upgradeLabel" style="color: white">
+                Upgrade now!
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div id="upgradeBody">
+                <h2
+                  style="
+                    background-color: rgb(84, 88, 88);
+                    padding: 4px;
+                    color: rgb(17, 196, 106);
+                  "
+                >
+                  Get your premium today!
+                </h2>
+                <img width="365px" src="./images/pricingtable.JPG" />
+                <div class="container">
+                  <div class="row">
+                    <div class="col-2">
+                      <h2>Pay now:</h2>
+                    </div>
+                    <div class="col-4">
+                      <div id="paypal-gold-button"></div>
+                    </div>
+                    <div class="col-6">
+                      <div id="paypal-platinum-button"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="background-color: rgb(84, 88, 88);">
+                <h2 style="color:red">VERY IMPORTANT!</h2>
+                <h2 style="color: white"> Your membership will ONLY work for the passcode you entered!</h2>
+              </div>
+              
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="passcodeModal"
+        tabindex="-1"
+        aria-labelledby="passcodeLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="passcodeLabel" style="color: white">
+                Please enter your passcode:
+              </h5>
+            </div>
+            <div class="modal-body">
+              <div id="passcodeBody">
+                <input id="passcodeInput" type="password" />
+                <button id="passcodeSubmit" class="btn btn-success">Sumbit</button>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-outline-dark" data-bs-toggle="tooltip"
+                      title="This passcode will be used to secure your passwords and load your membership status.">Why?</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="firstTimeModal"
+        tabindex="-1"
+        aria-labelledby="firstTimeLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="firstTimeLabel" style="color: white">
+                Welcome to PassWorld!
+              </h5>
+            </div>
+            <div class="modal-body">
+              <div id="passcodeBody" style="background-color:rgb(45, 93, 121);">
+                <h2>You will now be asked to enter a passcode that will be used for future login.</h2>
+                <h4 style="color: red;">IMPORTANT - this password cannot be changed!!!</h4>
               </div>
             </div>
             <div class="modal-footer">
@@ -218,5 +394,8 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="popup.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=ARpSmZ1aePLxnJSw-Awa8K2XhHOeTRV0EOAOXJBCz7ZDDNZ8EKYMqPRy8uxRzLyHNtzB_SPdGL759ztj&currency=USD&disable-funding=credit,card"></script>
+    <script src="payment.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
   </body>
 </html>

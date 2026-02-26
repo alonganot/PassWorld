@@ -1,7 +1,3 @@
-# PassWorld
-
-Access your passwords anytime!
-
 version: 1.1.0
 Patch notes:
 - Added tooltips describing all buttons.
@@ -19,9 +15,9 @@ Patch notes:
 - You now only see the buttons for actions that gives real values.
 - Removed the generic "edit" button at the bottom the extension.
 - Each password now has an independent "edit" button (You can still change which password to edit via
-  the window).
+  the window)
 - Added patch notes icon to check out the recent updates.
- 
+
 version 1.2.0
 Patch notes:
 - Fixed bug of long site name messing the table.

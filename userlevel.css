@@ -1,0 +1,44 @@
+body {
+  background-image: url("./images/keysBackground.jpg");
+}
+
+h1 {
+  font-size: 80px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+.gold {
+  border-radius: 30px;
+  margin-left: 20vw;
+  width: 60vw;
+  color: gold;
+  background-color: rgb(148, 146, 44);
+}
+
+.platinum {
+  border-radius: 30px;
+  margin-left: 20vw;
+  width: 60vw;
+  color: rgb(40, 203, 224);
+  background-color: rgb(44, 136, 148);
+}
+
+.information {
+    color: rgb(230, 230, 230);
+    width: 70vw;
+    margin-left: 15vw;
+    background-color: rgb(59, 59, 59);
+}
+
+.highlighted {
+    color: rgb(0, 255, 0);
+    font-size: 40px;
+    font-weight: bold;
+}

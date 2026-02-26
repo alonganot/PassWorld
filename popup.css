@@ -12,7 +12,7 @@ h3 {
 
 .version {
   color: rgb(212, 212, 212);
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .modal-header {
@@ -37,4 +37,66 @@ h3 {
   background-color: white;
   margin-top: 20px;
   padding: 7px;
+}
+
+.buttonList {
+  width: 45px;
+  height: 45px;
+}
+
+.iconList {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#patchNotesButton {
+  position: fixed;
+  display: flex;
+  color: rgb(212, 212, 212);
+  background-color: rgb(33, 71, 94);
+}
+
+#upgradeButton {
+  margin-left: 340px;
+  position: fixed;
+  display: flex;
+  color: rgb(112, 221, 91);
+  background-color: rgb(38, 88, 26);
+}
+
+#patchNotesBody {
+  background-color: white;
+}
+
+#patchNotes {
+  height: 300px;
+}
+
+.siteNameDiv {
+  max-width: 110px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#userLevel {
+  margin-top: 5px;
+  margin-left: 100px;
+  width: 50vw;
+  border-radius: 25px;
+}
+
+#paypal-gold-button {
+  margin-right: 80px;
+  margin-top: 15px;
+  width: 5px;
+}
+
+#paypal-platinum-button {
+  margin-left: 30px;
+  margin-top: 15px;
+  width: 5px;
 }
